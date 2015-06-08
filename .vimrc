@@ -25,6 +25,10 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'phildawes/racer'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/prev_indent'
+Plugin 'tpope/vim-fugitive'
+Plugin 'python-rope/ropevim'
 "plugins must be declared above 
 set t_Co=256
 filetype plugin indent on
@@ -81,3 +85,22 @@ let g:ctrlp_working_path_mode = 'r'
 nmap <leader>bb :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>bs :CtrlPMRU<cr>
+"IndentGuides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesEven ctermbg=black   
+hi IndentGuidesOdd ctermbg=black   
+"Rope
+let g:ropevim_autoimport_modules = ["os", "shutil"]
+let g:ropevim_goto_def_newwin = 1
+"binds RopeRename<CR> to <leader>r
+map <leader>r :RopeRename<CR>
+map <leader>g :RopeGotoDefinition<CR>
+"remove unwanted whitespace
+:nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+set scrolloff=10
+"Nerdtree toggle with leader+n
+map <leader>n :NERDTreeToggle<CR>
+
