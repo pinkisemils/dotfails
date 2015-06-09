@@ -103,4 +103,7 @@ map <leader>g :RopeGotoDefinition<CR>
 set scrolloff=10
 "Nerdtree toggle with leader+n
 map <leader>n :NERDTreeToggle<CR>
-
+"remove unwanted whitespace
+:nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"Scrolloff, lines from bottom when scrolling 'actiavtes'
+set scrolloff=10
